@@ -1,9 +1,23 @@
 /*  ./components/Navbar.jsx     */
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export const Navbar = () => {
   return (
     <>
+<motion.div initial='hidden' animate='visible' variants={{
+    hidden: {
+        opacity: 0,
+        y: -100
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: 0.5
+        }
+    }
+}}   >
       <nav className='flex items-center flex-wrap bg-green-400 p-3 '>
         <Link href='/'>
           <a className='inline-flex items-center p-2 mr-4 '>
@@ -60,6 +74,7 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
+</motion.div>
     </>
   );
 };
